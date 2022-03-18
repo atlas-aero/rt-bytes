@@ -1,47 +1,13 @@
-# Bytes
+# Patch
 
-A utility library for working with bytes.
+> **_NOTE:_**  This patch adds atomic-cas polyfill to bytes for targets like thumbv6m-none-eabi until the following PR/issue is resolved:
+>
+> * https://github.com/tokio-rs/bytes/pull/467
+> * https://github.com/tokio-rs/bytes/issues/461
 
-[![Crates.io][crates-badge]][crates-url]
-[![Build Status][ci-badge]][ci-url]
+The patch can be applied by adding the following segment to root Cargo.toml:
 
-[crates-badge]: https://img.shields.io/crates/v/bytes.svg
-[crates-url]: https://crates.io/crates/bytes
-[ci-badge]: https://github.com/tokio-rs/bytes/workflows/CI/badge.svg
-[ci-url]: https://github.com/tokio-rs/bytes/actions
-
-[Documentation](https://docs.rs/bytes)
-
-## Usage
-
-To use `bytes`, first add this to your `Cargo.toml`:
-
-```toml
-[dependencies]
-bytes = "1"
-```
-
-Next, add this to your crate:
-
-```rust
-use bytes::{Bytes, BytesMut, Buf, BufMut};
-```
-
-## Serde support
-
-Serde support is optional and disabled by default. To enable use the feature `serde`.
-
-```toml
-[dependencies]
-bytes = { version = "1", features = ["serde"] }
-```
-
-## License
-
-This project is licensed under the [MIT license](LICENSE).
-
-### Contribution
-
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in `bytes` by you, shall be licensed as MIT, without any additional
-terms or conditions.
+````TOML
+[patch.crates-io]
+bytes = { git = "ssh://git@github.com/pegasus-aero/rt-bytes.git", branch = "cfg_target_has_atomic" }
+````
