@@ -2,9 +2,14 @@
 
 #[cfg(not(all(test, loom)))]
 pub(crate) mod sync {
-    #[cfg(not(bytes_no_atomic_cas))]
     pub(crate) mod atomic {
+        #[cfg(not(bytes_no_atomic_cas))]
         pub(crate) use core::sync::atomic::{fence, AtomicPtr, AtomicUsize, Ordering};
+
+        #[cfg(bytes_no_atomic_cas)]
+        pub(crate) use core::sync::atomic::{fence, Ordering};
+        #[cfg(bytes_no_atomic_cas)]
+        pub(crate) use portable_atomic::{AtomicUsize, AtomicPtr};
 
         pub(crate) trait AtomicMut<T> {
             fn with_mut<F, R>(&mut self, f: F) -> R
