@@ -23,6 +23,7 @@ std = []
 
 [dependencies]
 serde = { version = "1.0.60", optional = true, default-features = false, features = ["alloc"] }
+portable-atomic = "0.2.1"
 
 [dev-dependencies]
 serde_test = "1.0"
