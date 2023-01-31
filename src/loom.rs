@@ -4,7 +4,7 @@
 pub(crate) mod sync {
     pub(crate) mod atomic {
         #[cfg(not(bytes_no_atomic_cas))]
-        pub(crate) use core::sync::atomic::{fence, AtomicPtr, AtomicUsize, Ordering};
+        pub(crate) use core::sync::atomic::{AtomicPtr, AtomicUsize, Ordering};
 
         #[cfg(bytes_no_atomic_cas)]
         pub(crate) use core::sync::atomic::{fence, Ordering};
