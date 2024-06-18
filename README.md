@@ -9,5 +9,5 @@ The patch can be applied by adding the following segment to root Cargo.toml:
 
 ````TOML
 [patch.crates-io]
-bytes = { git = "ssh://git@github.com/pegasus-aero/rt-bytes.git", branch = "cfg_target_has_atomic" }
+bytes = { git = "ssh://git@github.com/pegasus-aero/rt-bytes.git", branch = "cfg_target_has_atomic_v1.3.0" }
 ````
