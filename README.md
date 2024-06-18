@@ -5,9 +5,9 @@
 > * https://github.com/tokio-rs/bytes/pull/467
 > * https://github.com/tokio-rs/bytes/issues/461
 
-The patch can be applied by adding the following segment to root Cargo.toml, replacing v1.x.x with the version of the bytes crate used:
+The patch can be applied by adding the following segment to root Cargo.toml:
 
 ````TOML
 [patch.crates-io]
-bytes = { git = "ssh://git@github.com/pegasus-aero/rt-bytes.git", branch = "cfg_target_has_atomic_v1.x.x" }
+bytes = { git = "ssh://git@github.com/pegasus-aero/rt-bytes.git", branch = "cfg_target_has_atomic_v1.6.0" }
 ````
